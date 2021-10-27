@@ -41,10 +41,6 @@ namespace VideoclubEjemplo
             System.Windows.Forms.Label localidadLabel;
             System.Windows.Forms.Label telefonoLabel;
             System.Windows.Forms.Label emailLabel;
-            this.dsBD = new VideoclubEjemplo.dsBD();
-            this.sociosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sociosTableAdapter = new VideoclubEjemplo.dsBDTableAdapters.sociosTableAdapter();
-            this.tableAdapterManager = new VideoclubEjemplo.dsBDTableAdapters.TableAdapterManager();
             this.sociosBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
@@ -68,6 +64,11 @@ namespace VideoclubEjemplo
             this.localidadTextBox = new System.Windows.Forms.TextBox();
             this.telefonoTextBox = new System.Windows.Forms.TextBox();
             this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.sociosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsBD = new VideoclubEjemplo.dsBD();
+            this.sociosTableAdapter = new VideoclubEjemplo.dsBDTableAdapters.sociosTableAdapter();
+            this.tableAdapterManager = new VideoclubEjemplo.dsBDTableAdapters.TableAdapterManager();
+            this.alquileresTableAdapter1 = new VideoclubEjemplo.dsBDTableAdapters.alquileresTableAdapter();
             idSocioLabel = new System.Windows.Forms.Label();
             loginLabel = new System.Windows.Forms.Label();
             pwdLabel = new System.Windows.Forms.Label();
@@ -78,35 +79,11 @@ namespace VideoclubEjemplo
             localidadLabel = new System.Windows.Forms.Label();
             telefonoLabel = new System.Windows.Forms.Label();
             emailLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dsBD)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sociosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sociosBindingNavigator)).BeginInit();
             this.sociosBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sociosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsBD)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dsBD
-            // 
-            this.dsBD.DataSetName = "dsBD";
-            this.dsBD.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // sociosBindingSource
-            // 
-            this.sociosBindingSource.DataMember = "socios";
-            this.sociosBindingSource.DataSource = this.dsBD;
-            // 
-            // sociosTableAdapter
-            // 
-            this.sociosTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.alquileresTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.categoriasTableAdapter = null;
-            this.tableAdapterManager.estilosTableAdapter = null;
-            this.tableAdapterManager.peliculasTableAdapter = null;
-            this.tableAdapterManager.sociosTableAdapter = this.sociosTableAdapter;
-            this.tableAdapterManager.UpdateOrder = VideoclubEjemplo.dsBDTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // sociosBindingNavigator
             // 
@@ -165,6 +142,7 @@ namespace VideoclubEjemplo
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Posición";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -173,14 +151,14 @@ namespace VideoclubEjemplo
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 15);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
             this.bindingNavigatorCountItem.Text = "de {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
             // 
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 6);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -188,7 +166,7 @@ namespace VideoclubEjemplo
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveNextItem.Text = "Mover siguiente";
             // 
             // bindingNavigatorMoveLastItem
@@ -197,13 +175,13 @@ namespace VideoclubEjemplo
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Mover último";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 6);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -229,7 +207,7 @@ namespace VideoclubEjemplo
             this.sociosBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.sociosBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("sociosBindingNavigatorSaveItem.Image")));
             this.sociosBindingNavigatorSaveItem.Name = "sociosBindingNavigatorSaveItem";
-            this.sociosBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 23);
+            this.sociosBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.sociosBindingNavigatorSaveItem.Text = "Guardar datos";
             this.sociosBindingNavigatorSaveItem.Click += new System.EventHandler(this.sociosBindingNavigatorSaveItem_Click);
             // 
@@ -404,6 +382,34 @@ namespace VideoclubEjemplo
             this.emailTextBox.Size = new System.Drawing.Size(249, 20);
             this.emailTextBox.TabIndex = 20;
             // 
+            // sociosBindingSource
+            // 
+            this.sociosBindingSource.DataMember = "socios";
+            this.sociosBindingSource.DataSource = this.dsBD;
+            // 
+            // dsBD
+            // 
+            this.dsBD.DataSetName = "dsBD";
+            this.dsBD.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sociosTableAdapter
+            // 
+            this.sociosTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.alquileresTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.categoriasTableAdapter = null;
+            this.tableAdapterManager.estilosTableAdapter = null;
+            this.tableAdapterManager.peliculasTableAdapter = null;
+            this.tableAdapterManager.sociosTableAdapter = this.sociosTableAdapter;
+            this.tableAdapterManager.UpdateOrder = VideoclubEjemplo.dsBDTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // alquileresTableAdapter1
+            // 
+            this.alquileresTableAdapter1.ClearBeforeFill = true;
+            // 
             // frmDatosSocios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -436,11 +442,11 @@ namespace VideoclubEjemplo
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDatosSocios";
             this.Load += new System.EventHandler(this.frmDatosSocios_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dsBD)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sociosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sociosBindingNavigator)).EndInit();
             this.sociosBindingNavigator.ResumeLayout(false);
             this.sociosBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sociosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsBD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -475,5 +481,6 @@ namespace VideoclubEjemplo
         private System.Windows.Forms.TextBox localidadTextBox;
         private System.Windows.Forms.TextBox telefonoTextBox;
         private System.Windows.Forms.TextBox emailTextBox;
+        private dsBDTableAdapters.alquileresTableAdapter alquileresTableAdapter1;
     }
 }

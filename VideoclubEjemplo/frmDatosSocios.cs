@@ -5,10 +5,12 @@ namespace VideoclubEjemplo
 {
     public partial class frmDatosSocios : Form
     {
+        dsBDTableAdapters.alquileresTableAdapter taAlquileres = new dsBDTableAdapters.alquileresTableAdapter();
         public frmDatosSocios()
         {
             InitializeComponent();
         }
+
 
         private void sociosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
@@ -33,9 +35,14 @@ namespace VideoclubEjemplo
 
             if (resp == DialogResult.Yes)
             {
-                regs = this.sociosTableAdapter.Delete(int.Parse(this.idSocioLabel1.Text));
-                if (regs > 0)
+                taAlquileres.FillBySocio(dsBD.alquileres, int.Parse(this.idSocioLabel1.Text));//guardamos los registros en dsBd.alquileres
+                if (dsBD.alquileres.Count > 0)
                 {
+                    MessageBox.Show("No se puede eliminar al socio, porque tiene alquileres", "Eliminar registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    this.sociosTableAdapter.Delete(int.Parse(this.idSocioLabel1.Text));
                     MessageBox.Show("Socio eliminado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     sociosTableAdapter.Fill(dsBD.socios);
                 }

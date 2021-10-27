@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace VideoclubEjemplo
@@ -31,7 +24,7 @@ namespace VideoclubEjemplo
             tbSocios.FillByLoginPwd(ds.socios, txtLogin.Text, txtContraseña.Text);
 
             //Si tenemos algun socio con el login y la contraseña introducida...
-            if(ds.socios.Count > 0)
+            if (ds.socios.Count > 0)
             {
                 MessageBox.Show("Buenas " + ds.socios[0].nombre, "Saludo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 IDSocio = ds.socios[0].idSocio;
