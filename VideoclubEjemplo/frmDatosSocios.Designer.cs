@@ -30,7 +30,6 @@ namespace VideoclubEjemplo
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDatosSocios));
             System.Windows.Forms.Label idSocioLabel;
             System.Windows.Forms.Label loginLabel;
             System.Windows.Forms.Label pwdLabel;
@@ -41,17 +40,20 @@ namespace VideoclubEjemplo
             System.Windows.Forms.Label localidadLabel;
             System.Windows.Forms.Label telefonoLabel;
             System.Windows.Forms.Label emailLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDatosSocios));
             this.sociosBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.sociosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsBD = new VideoclubEjemplo.dsBD();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.sociosBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.idSocioLabel1 = new System.Windows.Forms.Label();
@@ -64,8 +66,6 @@ namespace VideoclubEjemplo
             this.localidadTextBox = new System.Windows.Forms.TextBox();
             this.telefonoTextBox = new System.Windows.Forms.TextBox();
             this.emailTextBox = new System.Windows.Forms.TextBox();
-            this.sociosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsBD = new VideoclubEjemplo.dsBD();
             this.sociosTableAdapter = new VideoclubEjemplo.dsBDTableAdapters.sociosTableAdapter();
             this.tableAdapterManager = new VideoclubEjemplo.dsBDTableAdapters.TableAdapterManager();
             this.alquileresTableAdapter1 = new VideoclubEjemplo.dsBDTableAdapters.alquileresTableAdapter();
@@ -84,6 +84,96 @@ namespace VideoclubEjemplo
             ((System.ComponentModel.ISupportInitialize)(this.sociosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsBD)).BeginInit();
             this.SuspendLayout();
+            // 
+            // idSocioLabel
+            // 
+            idSocioLabel.AutoSize = true;
+            idSocioLabel.Location = new System.Drawing.Point(12, 41);
+            idSocioLabel.Name = "idSocioLabel";
+            idSocioLabel.Size = new System.Drawing.Size(48, 13);
+            idSocioLabel.TabIndex = 1;
+            idSocioLabel.Text = "id Socio:";
+            // 
+            // loginLabel
+            // 
+            loginLabel.AutoSize = true;
+            loginLabel.Location = new System.Drawing.Point(12, 70);
+            loginLabel.Name = "loginLabel";
+            loginLabel.Size = new System.Drawing.Size(32, 13);
+            loginLabel.TabIndex = 3;
+            loginLabel.Text = "login:";
+            // 
+            // pwdLabel
+            // 
+            pwdLabel.AutoSize = true;
+            pwdLabel.Location = new System.Drawing.Point(12, 96);
+            pwdLabel.Name = "pwdLabel";
+            pwdLabel.Size = new System.Drawing.Size(30, 13);
+            pwdLabel.TabIndex = 5;
+            pwdLabel.Text = "pwd:";
+            // 
+            // nombreLabel
+            // 
+            nombreLabel.AutoSize = true;
+            nombreLabel.Location = new System.Drawing.Point(12, 122);
+            nombreLabel.Name = "nombreLabel";
+            nombreLabel.Size = new System.Drawing.Size(45, 13);
+            nombreLabel.TabIndex = 7;
+            nombreLabel.Text = "nombre:";
+            // 
+            // apell1Label
+            // 
+            apell1Label.AutoSize = true;
+            apell1Label.Location = new System.Drawing.Point(12, 148);
+            apell1Label.Name = "apell1Label";
+            apell1Label.Size = new System.Drawing.Size(38, 13);
+            apell1Label.TabIndex = 9;
+            apell1Label.Text = "apell1:";
+            // 
+            // apell2Label
+            // 
+            apell2Label.AutoSize = true;
+            apell2Label.Location = new System.Drawing.Point(12, 174);
+            apell2Label.Name = "apell2Label";
+            apell2Label.Size = new System.Drawing.Size(38, 13);
+            apell2Label.TabIndex = 11;
+            apell2Label.Text = "apell2:";
+            // 
+            // direccionLabel
+            // 
+            direccionLabel.AutoSize = true;
+            direccionLabel.Location = new System.Drawing.Point(12, 200);
+            direccionLabel.Name = "direccionLabel";
+            direccionLabel.Size = new System.Drawing.Size(53, 13);
+            direccionLabel.TabIndex = 13;
+            direccionLabel.Text = "direccion:";
+            // 
+            // localidadLabel
+            // 
+            localidadLabel.AutoSize = true;
+            localidadLabel.Location = new System.Drawing.Point(12, 226);
+            localidadLabel.Name = "localidadLabel";
+            localidadLabel.Size = new System.Drawing.Size(52, 13);
+            localidadLabel.TabIndex = 15;
+            localidadLabel.Text = "localidad:";
+            // 
+            // telefonoLabel
+            // 
+            telefonoLabel.AutoSize = true;
+            telefonoLabel.Location = new System.Drawing.Point(12, 252);
+            telefonoLabel.Name = "telefonoLabel";
+            telefonoLabel.Size = new System.Drawing.Size(48, 13);
+            telefonoLabel.TabIndex = 17;
+            telefonoLabel.Text = "telefono:";
+            // 
+            // emailLabel
+            // 
+            emailLabel.AutoSize = true;
+            emailLabel.Location = new System.Drawing.Point(12, 278);
+            emailLabel.Name = "emailLabel";
+            emailLabel.Size = new System.Drawing.Size(34, 13);
+            emailLabel.TabIndex = 19;
+            emailLabel.Text = "email:";
             // 
             // sociosBindingNavigator
             // 
@@ -111,9 +201,35 @@ namespace VideoclubEjemplo
             this.sociosBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.sociosBindingNavigator.Name = "sociosBindingNavigator";
             this.sociosBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.sociosBindingNavigator.Size = new System.Drawing.Size(359, 25);
+            this.sociosBindingNavigator.Size = new System.Drawing.Size(338, 25);
             this.sociosBindingNavigator.TabIndex = 0;
             this.sociosBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
+            // 
+            // sociosBindingSource
+            // 
+            this.sociosBindingSource.DataMember = "socios";
+            this.sociosBindingSource.DataSource = this.dsBD;
+            // 
+            // dsBD
+            // 
+            this.dsBD.DataSetName = "dsBD";
+            this.dsBD.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
+            this.bindingNavigatorCountItem.Text = "de {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -142,22 +258,14 @@ namespace VideoclubEjemplo
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Posición";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Posición actual";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
-            this.bindingNavigatorCountItem.Text = "de {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
@@ -180,17 +288,8 @@ namespace VideoclubEjemplo
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
             // 
             // bindingNavigatorDeleteItem
             // 
@@ -211,15 +310,6 @@ namespace VideoclubEjemplo
             this.sociosBindingNavigatorSaveItem.Text = "Guardar datos";
             this.sociosBindingNavigatorSaveItem.Click += new System.EventHandler(this.sociosBindingNavigatorSaveItem_Click);
             // 
-            // idSocioLabel
-            // 
-            idSocioLabel.AutoSize = true;
-            idSocioLabel.Location = new System.Drawing.Point(12, 41);
-            idSocioLabel.Name = "idSocioLabel";
-            idSocioLabel.Size = new System.Drawing.Size(48, 13);
-            idSocioLabel.TabIndex = 1;
-            idSocioLabel.Text = "id Socio:";
-            // 
             // idSocioLabel1
             // 
             this.idSocioLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sociosBindingSource, "idSocio", true));
@@ -229,15 +319,6 @@ namespace VideoclubEjemplo
             this.idSocioLabel1.TabIndex = 2;
             this.idSocioLabel1.Text = "label1";
             // 
-            // loginLabel
-            // 
-            loginLabel.AutoSize = true;
-            loginLabel.Location = new System.Drawing.Point(12, 70);
-            loginLabel.Name = "loginLabel";
-            loginLabel.Size = new System.Drawing.Size(32, 13);
-            loginLabel.TabIndex = 3;
-            loginLabel.Text = "login:";
-            // 
             // loginTextBox
             // 
             this.loginTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sociosBindingSource, "login", true));
@@ -245,15 +326,6 @@ namespace VideoclubEjemplo
             this.loginTextBox.Name = "loginTextBox";
             this.loginTextBox.Size = new System.Drawing.Size(249, 20);
             this.loginTextBox.TabIndex = 4;
-            // 
-            // pwdLabel
-            // 
-            pwdLabel.AutoSize = true;
-            pwdLabel.Location = new System.Drawing.Point(12, 96);
-            pwdLabel.Name = "pwdLabel";
-            pwdLabel.Size = new System.Drawing.Size(30, 13);
-            pwdLabel.TabIndex = 5;
-            pwdLabel.Text = "pwd:";
             // 
             // pwdTextBox
             // 
@@ -263,15 +335,6 @@ namespace VideoclubEjemplo
             this.pwdTextBox.Size = new System.Drawing.Size(249, 20);
             this.pwdTextBox.TabIndex = 6;
             // 
-            // nombreLabel
-            // 
-            nombreLabel.AutoSize = true;
-            nombreLabel.Location = new System.Drawing.Point(12, 122);
-            nombreLabel.Name = "nombreLabel";
-            nombreLabel.Size = new System.Drawing.Size(45, 13);
-            nombreLabel.TabIndex = 7;
-            nombreLabel.Text = "nombre:";
-            // 
             // nombreTextBox
             // 
             this.nombreTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sociosBindingSource, "nombre", true));
@@ -279,15 +342,6 @@ namespace VideoclubEjemplo
             this.nombreTextBox.Name = "nombreTextBox";
             this.nombreTextBox.Size = new System.Drawing.Size(249, 20);
             this.nombreTextBox.TabIndex = 8;
-            // 
-            // apell1Label
-            // 
-            apell1Label.AutoSize = true;
-            apell1Label.Location = new System.Drawing.Point(12, 148);
-            apell1Label.Name = "apell1Label";
-            apell1Label.Size = new System.Drawing.Size(38, 13);
-            apell1Label.TabIndex = 9;
-            apell1Label.Text = "apell1:";
             // 
             // apell1TextBox
             // 
@@ -297,15 +351,6 @@ namespace VideoclubEjemplo
             this.apell1TextBox.Size = new System.Drawing.Size(249, 20);
             this.apell1TextBox.TabIndex = 10;
             // 
-            // apell2Label
-            // 
-            apell2Label.AutoSize = true;
-            apell2Label.Location = new System.Drawing.Point(12, 174);
-            apell2Label.Name = "apell2Label";
-            apell2Label.Size = new System.Drawing.Size(38, 13);
-            apell2Label.TabIndex = 11;
-            apell2Label.Text = "apell2:";
-            // 
             // apell2TextBox
             // 
             this.apell2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sociosBindingSource, "apell2", true));
@@ -313,15 +358,6 @@ namespace VideoclubEjemplo
             this.apell2TextBox.Name = "apell2TextBox";
             this.apell2TextBox.Size = new System.Drawing.Size(249, 20);
             this.apell2TextBox.TabIndex = 12;
-            // 
-            // direccionLabel
-            // 
-            direccionLabel.AutoSize = true;
-            direccionLabel.Location = new System.Drawing.Point(12, 200);
-            direccionLabel.Name = "direccionLabel";
-            direccionLabel.Size = new System.Drawing.Size(53, 13);
-            direccionLabel.TabIndex = 13;
-            direccionLabel.Text = "direccion:";
             // 
             // direccionTextBox
             // 
@@ -331,15 +367,6 @@ namespace VideoclubEjemplo
             this.direccionTextBox.Size = new System.Drawing.Size(249, 20);
             this.direccionTextBox.TabIndex = 14;
             // 
-            // localidadLabel
-            // 
-            localidadLabel.AutoSize = true;
-            localidadLabel.Location = new System.Drawing.Point(12, 226);
-            localidadLabel.Name = "localidadLabel";
-            localidadLabel.Size = new System.Drawing.Size(52, 13);
-            localidadLabel.TabIndex = 15;
-            localidadLabel.Text = "localidad:";
-            // 
             // localidadTextBox
             // 
             this.localidadTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sociosBindingSource, "localidad", true));
@@ -347,15 +374,6 @@ namespace VideoclubEjemplo
             this.localidadTextBox.Name = "localidadTextBox";
             this.localidadTextBox.Size = new System.Drawing.Size(249, 20);
             this.localidadTextBox.TabIndex = 16;
-            // 
-            // telefonoLabel
-            // 
-            telefonoLabel.AutoSize = true;
-            telefonoLabel.Location = new System.Drawing.Point(12, 252);
-            telefonoLabel.Name = "telefonoLabel";
-            telefonoLabel.Size = new System.Drawing.Size(48, 13);
-            telefonoLabel.TabIndex = 17;
-            telefonoLabel.Text = "telefono:";
             // 
             // telefonoTextBox
             // 
@@ -365,15 +383,6 @@ namespace VideoclubEjemplo
             this.telefonoTextBox.Size = new System.Drawing.Size(249, 20);
             this.telefonoTextBox.TabIndex = 18;
             // 
-            // emailLabel
-            // 
-            emailLabel.AutoSize = true;
-            emailLabel.Location = new System.Drawing.Point(12, 278);
-            emailLabel.Name = "emailLabel";
-            emailLabel.Size = new System.Drawing.Size(34, 13);
-            emailLabel.TabIndex = 19;
-            emailLabel.Text = "email:";
-            // 
             // emailTextBox
             // 
             this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sociosBindingSource, "email", true));
@@ -381,16 +390,6 @@ namespace VideoclubEjemplo
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(249, 20);
             this.emailTextBox.TabIndex = 20;
-            // 
-            // sociosBindingSource
-            // 
-            this.sociosBindingSource.DataMember = "socios";
-            this.sociosBindingSource.DataSource = this.dsBD;
-            // 
-            // dsBD
-            // 
-            this.dsBD.DataSetName = "dsBD";
-            this.dsBD.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // sociosTableAdapter
             // 
@@ -415,7 +414,7 @@ namespace VideoclubEjemplo
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(359, 314);
+            this.ClientSize = new System.Drawing.Size(338, 314);
             this.Controls.Add(idSocioLabel);
             this.Controls.Add(this.idSocioLabel1);
             this.Controls.Add(loginLabel);

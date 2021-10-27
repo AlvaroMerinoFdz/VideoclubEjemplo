@@ -3291,7 +3291,7 @@ SELECT codAlquiler, fechaAlquiler, socio, pelicula, fechaDevolucion, precio FROM
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT codAlquiler, fechaAlquiler, socio, pelicula, fechaDevolucion, precio FROM " +
@@ -3299,10 +3299,15 @@ SELECT codAlquiler, fechaAlquiler, socio, pelicula, fechaDevolucion, precio FROM
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        socio, codAlquiler, fechaAlquiler, pelicula, fechaDevolucion, preci" +
-                "o, alquileres.*\r\nFROM            alquileres\r\nWHERE        (socio = @Param1)";
+            this._commandCollection[1].CommandText = "DELETE FROM alquileres\r\nWHERE        (socio = @Original_socio)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param1", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "socio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_socio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "socio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT        socio, codAlquiler, fechaAlquiler, pelicula, fechaDevolucion, preci" +
+                "o, alquileres.*\r\nFROM            alquileres\r\nWHERE        (socio = @Param1)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param1", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "socio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3334,7 +3339,7 @@ SELECT codAlquiler, fechaAlquiler, socio, pelicula, fechaDevolucion, precio FROM
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillBySocio(dsBD.alquileresDataTable dataTable, int Param1) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Param1));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3348,7 +3353,7 @@ SELECT codAlquiler, fechaAlquiler, socio, pelicula, fechaDevolucion, precio FROM
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual dsBD.alquileresDataTable GetDataBySocio(int Param1) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Param1));
             dsBD.alquileresDataTable dataTable = new dsBD.alquileresDataTable();
             this.Adapter.Fill(dataTable);
@@ -3548,6 +3553,30 @@ SELECT codAlquiler, fechaAlquiler, socio, pelicula, fechaDevolucion, precio FROM
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(global::System.Nullable<global::System.DateTime> fechaAlquiler, int socio, int pelicula, global::System.Nullable<global::System.DateTime> fechaDevolucion, global::System.Nullable<decimal> precio, int Original_codAlquiler, global::System.Nullable<global::System.DateTime> Original_fechaAlquiler, int Original_socio, int Original_pelicula, global::System.Nullable<global::System.DateTime> Original_fechaDevolucion, global::System.Nullable<decimal> Original_precio) {
             return this.Update(fechaAlquiler, socio, pelicula, fechaDevolucion, precio, Original_codAlquiler, Original_fechaAlquiler, Original_socio, Original_pelicula, Original_fechaDevolucion, Original_precio, Original_codAlquiler);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteSocio(int Original_socio) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            command.Parameters[0].Value = ((int)(Original_socio));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     

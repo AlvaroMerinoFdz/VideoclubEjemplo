@@ -38,13 +38,16 @@ namespace VideoclubEjemplo
                 taAlquileres.FillBySocio(dsBD.alquileres, int.Parse(this.idSocioLabel1.Text));//guardamos los registros en dsBd.alquileres
                 if (dsBD.alquileres.Count > 0)
                 {
-                    MessageBox.Show("No se puede eliminar al socio, porque tiene alquileres", "Eliminar registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    this.sociosTableAdapter.Delete(int.Parse(this.idSocioLabel1.Text));
-                    MessageBox.Show("Socio eliminado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    sociosTableAdapter.Fill(dsBD.socios);
+                    //MessageBox.Show("No se puede eliminar al socio, porque tiene alquileres", "Eliminar registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DialogResult respuesta =  MessageBox.Show("El socio tiene alquileres \n ¿Desea borrar los alquileres también?", "Eliminar registro", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if(respuesta == DialogResult.Yes)
+                    {
+                        taAlquileres.DeleteSocio(int.Parse(this.idSocioLabel1.Text));
+                        MessageBox.Show("Alquileres eliminados", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.sociosTableAdapter.Delete(int.Parse(this.idSocioLabel1.Text));
+                        MessageBox.Show("Socio eliminado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        sociosTableAdapter.Fill(dsBD.socios);
+                    }
                 }
             }
         }
