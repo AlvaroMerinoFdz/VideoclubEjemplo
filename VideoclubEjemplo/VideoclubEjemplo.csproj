@@ -54,6 +54,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsBD.xsd</DependentUpon>
     </Compile>
+    <Compile Include="frmDataGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDataGrid.Designer.cs">
+      <DependentUpon>frmDataGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDatosSocios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,13 +72,25 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPeliculas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPeliculas.Designer.cs">
+      <DependentUpon>frmPeliculas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmDataGrid.resx">
+      <DependentUpon>frmDataGrid.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDatosSocios.resx">
       <DependentUpon>frmDatosSocios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPeliculas.resx">
+      <DependentUpon>frmPeliculas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
