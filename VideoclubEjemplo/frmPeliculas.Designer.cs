@@ -74,8 +74,9 @@ namespace VideoclubEjemplo
             this.categoriaComboBox = new System.Windows.Forms.ComboBox();
             this.categoriasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.stockNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picCaratula = new System.Windows.Forms.PictureBox();
             this.btnNuevaCaratula = new System.Windows.Forms.Button();
+            this.ofdCaratulas = new System.Windows.Forms.OpenFileDialog();
             codpeliLabel = new System.Windows.Forms.Label();
             tituloLabel = new System.Windows.Forms.Label();
             directorLabel = new System.Windows.Forms.Label();
@@ -93,7 +94,7 @@ namespace VideoclubEjemplo
             ((System.ComponentModel.ISupportInitialize)(this.estilosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCaratula)).BeginInit();
             this.SuspendLayout();
             // 
             // codpeliLabel
@@ -256,7 +257,7 @@ namespace VideoclubEjemplo
             this.peliculasBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.peliculasBindingNavigator.Name = "peliculasBindingNavigator";
             this.peliculasBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.peliculasBindingNavigator.Size = new System.Drawing.Size(581, 25);
+            this.peliculasBindingNavigator.Size = new System.Drawing.Size(637, 25);
             this.peliculasBindingNavigator.TabIndex = 0;
             this.peliculasBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -453,8 +454,9 @@ namespace VideoclubEjemplo
             this.caratulaTextBox.Location = new System.Drawing.Point(449, 75);
             this.caratulaTextBox.Name = "caratulaTextBox";
             this.caratulaTextBox.ReadOnly = true;
-            this.caratulaTextBox.Size = new System.Drawing.Size(121, 21);
+            this.caratulaTextBox.Size = new System.Drawing.Size(170, 21);
             this.caratulaTextBox.TabIndex = 16;
+            this.caratulaTextBox.TextChanged += new System.EventHandler(this.caratulaTextBox_TextChanged);
             // 
             // categoriaComboBox
             // 
@@ -484,32 +486,34 @@ namespace VideoclubEjemplo
             this.stockNumericUpDown.Size = new System.Drawing.Size(50, 21);
             this.stockNumericUpDown.TabIndex = 20;
             // 
-            // pictureBox1
+            // picCaratula
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(449, 118);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(120, 149);
-            this.pictureBox1.TabIndex = 21;
-            this.pictureBox1.TabStop = false;
+            this.picCaratula.Location = new System.Drawing.Point(449, 118);
+            this.picCaratula.Name = "picCaratula";
+            this.picCaratula.Size = new System.Drawing.Size(120, 149);
+            this.picCaratula.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picCaratula.TabIndex = 21;
+            this.picCaratula.TabStop = false;
             // 
             // btnNuevaCaratula
             // 
             this.btnNuevaCaratula.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevaCaratula.Location = new System.Drawing.Point(449, 287);
             this.btnNuevaCaratula.Name = "btnNuevaCaratula";
-            this.btnNuevaCaratula.Size = new System.Drawing.Size(120, 23);
+            this.btnNuevaCaratula.Size = new System.Drawing.Size(170, 23);
             this.btnNuevaCaratula.TabIndex = 22;
-            this.btnNuevaCaratula.Text = "Nueva Carátula";
+            this.btnNuevaCaratula.Text = "Cambiar Carátula";
             this.btnNuevaCaratula.UseVisualStyleBackColor = true;
+            this.btnNuevaCaratula.Click += new System.EventHandler(this.btnNuevaCaratula_Click);
             // 
             // frmPeliculas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(581, 380);
+            this.ClientSize = new System.Drawing.Size(637, 380);
             this.Controls.Add(this.btnNuevaCaratula);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picCaratula);
             this.Controls.Add(codpeliLabel);
             this.Controls.Add(this.lblCodPeli);
             this.Controls.Add(tituloLabel);
@@ -544,7 +548,7 @@ namespace VideoclubEjemplo
             ((System.ComponentModel.ISupportInitialize)(this.estilosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCaratula)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -579,7 +583,7 @@ namespace VideoclubEjemplo
         private System.Windows.Forms.TextBox caratulaTextBox;
         private System.Windows.Forms.ComboBox categoriaComboBox;
         private System.Windows.Forms.NumericUpDown stockNumericUpDown;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picCaratula;
         private System.Windows.Forms.Button btnNuevaCaratula;
         private dsBDTableAdapters.estilosTableAdapter estilosTableAdapter;
         private System.Windows.Forms.BindingSource estilosBindingSource;
@@ -587,5 +591,6 @@ namespace VideoclubEjemplo
         private System.Windows.Forms.BindingSource categoriasBindingSource;
         private System.Windows.Forms.ToolStripComboBox toolStripcmbEstilos;
         private System.Windows.Forms.ToolStripButton btnMostrarTodas;
+        private System.Windows.Forms.OpenFileDialog ofdCaratulas;
     }
 }

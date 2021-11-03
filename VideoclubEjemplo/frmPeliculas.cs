@@ -89,6 +89,8 @@ namespace VideoclubEjemplo
                 }
                 else
                 {
+                    //Eliminamos el alquiler 
+                    tbAlquileres.DeleteAlquiler(int.Parse(lblCodPeli.Text));
                     //Eliminamos la película
                     peliculasTableAdapter.Delete1(int.Parse(lblCodPeli.Text));
                     MessageBox.Show("Película eliminada correctamente", "Película eliminada", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -100,10 +102,47 @@ namespace VideoclubEjemplo
             }
         }
 
+        private void cargarCaratula()
+        {
+            string fichCarat = "caratulas\\" + caratulaTextBox.Text;
+            string rutaCaratula = System.IO.Path.Combine(Application.StartupPath, fichCarat);
+            this.picCaratula.ImageLocation = rutaCaratula;
+        }
+
         private void toolStripcmbEstilos_SelectedIndexChanged(object sender, EventArgs e)
         {
             dsBD.peliculas.Clear();
             peliculasTableAdapter.FillByEstilo(dsBD.peliculas, toolStripcmbEstilos.Text);
+        }
+
+        private void btnNuevaCaratula_Click(object sender, EventArgs e)
+        {
+            //Esto para que el OpenFileDialog por defecto se abra por el directorio caratulas de proyecto
+            string miCarpetaOrigen = System.IO.Path.Combine(Application.StartupPath, "caratulas\\");
+            ofdCaratulas.InitialDirectory = miCarpetaOrigen;
+
+
+            if(ofdCaratulas.ShowDialog() == DialogResult.OK)
+            {
+                //Establecemos la nueva caratula
+                string rutaFich = ofdCaratulas.FileName;
+                caratulaTextBox.Text = rutaFich.Substring(rutaFich.LastIndexOf("\\") + 1);
+
+                //Ahora copiamos el fichero a mi carpeta caratulas
+                string carpetaImagen = rutaFich.Substring(0, rutaFich.LastIndexOf("\\") + 1);
+                //Solo se copia si había elegido una imagen de otro directorio distinto
+                if (!miCarpetaOrigen.Equals(carpetaImagen))
+                {
+                    string rutaDestinoEntera = miCarpetaOrigen + caratulaTextBox.Text;
+                    System.IO.File.Copy(rutaFich, rutaDestinoEntera, true);
+                }
+            }
+
+        }
+
+        private void caratulaTextBox_TextChanged(object sender, EventArgs e)
+        {
+            cargarCaratula();
         }
     }
 }

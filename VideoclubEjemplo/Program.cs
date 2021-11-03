@@ -16,7 +16,7 @@ namespace VideoclubEjemplo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPeliculas());
+            Application.Run(new frmPanelPrincipal());
         }
     }
 }
