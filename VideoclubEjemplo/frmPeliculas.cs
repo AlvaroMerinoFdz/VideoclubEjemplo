@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace VideoclubEjemplo
@@ -47,7 +40,7 @@ namespace VideoclubEjemplo
             //Cargamos el combo de estilos del toolStripMenu
             cargarComboEstilos();
         }
-       
+
         /**
          * Método que vale para cargar el combo de estilos que se encuentra en el ToolStripMenu
          */
@@ -77,12 +70,12 @@ namespace VideoclubEjemplo
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
             DialogResult resp = new DialogResult();
-            resp = MessageBox.Show("Estás seguro que quieres eliminar la película?","Eliminar Película",MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-            if(resp== DialogResult.Yes)
+            resp = MessageBox.Show("Estás seguro que quieres eliminar la película?", "Eliminar Película", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if (resp == DialogResult.Yes)
             {
                 //Miramos si la película tiene algún alquiler
                 tbAlquileres.FillByPelicula(dsBD.alquileres, int.Parse(lblCodPeli.Text));
-                if(dsBD.alquileres.Count > 0)
+                if (dsBD.alquileres.Count > 0)
                 {
                     MessageBox.Show("La película no se puede borrar porque está alquilada", "Información ", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -122,7 +115,7 @@ namespace VideoclubEjemplo
             ofdCaratulas.InitialDirectory = miCarpetaOrigen;
 
 
-            if(ofdCaratulas.ShowDialog() == DialogResult.OK)
+            if (ofdCaratulas.ShowDialog() == DialogResult.OK)
             {
                 //Establecemos la nueva caratula
                 string rutaFich = ofdCaratulas.FileName;

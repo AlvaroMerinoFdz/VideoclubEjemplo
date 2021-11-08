@@ -39,13 +39,13 @@ namespace VideoclubEjemplo
                 if (dsBD.alquileres.Count > 0)
                 {
                     //MessageBox.Show("No se puede eliminar al socio, porque tiene alquileres", "Eliminar registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    DialogResult respuesta =  MessageBox.Show("El socio tiene peliculas alquiladas \n ¿Desea borrar los alquileres también?", "Eliminar registro", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                    if(respuesta == DialogResult.Yes)
+                    DialogResult respuesta = MessageBox.Show("El socio tiene peliculas alquiladas \n ¿Desea borrar los alquileres también?", "Eliminar registro", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (respuesta == DialogResult.Yes)
                     {
                         //Se eliminan primero los alquileres y luego el socio
                         taAlquileres.DeleteSocio(int.Parse(this.idSocioLabel1.Text));
                         MessageBox.Show("Alquileres eliminados", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        
+
                         //Ahora eliminamos al socio
                         this.sociosTableAdapter.Delete(int.Parse(this.idSocioLabel1.Text));
                         MessageBox.Show("Socio eliminado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -53,7 +53,7 @@ namespace VideoclubEjemplo
                     }
                     else
                     {
-                        MessageBox.Show("El socio no se puede eliminar","Información",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("El socio no se puede eliminar", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }

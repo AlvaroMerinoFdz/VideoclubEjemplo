@@ -54,6 +54,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsBD.xsd</DependentUpon>
     </Compile>
+    <Compile Include="frmAlquileres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAlquileres.Designer.cs">
+      <DependentUpon>frmAlquileres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBusqSocios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBusqSocios.Designer.cs">
+      <DependentUpon>frmBusqSocios.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDataGrid.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +98,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAlquileres.resx">
+      <DependentUpon>frmAlquileres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBusqSocios.resx">
+      <DependentUpon>frmBusqSocios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDataGrid.resx">
       <DependentUpon>frmDataGrid.cs</DependentUpon>
     </EmbeddedResource>
