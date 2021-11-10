@@ -437,6 +437,7 @@ namespace VideoclubEjemplo
             this.Controls.Add(emailLabel);
             this.Controls.Add(this.emailTextBox);
             this.Controls.Add(this.sociosBindingNavigator);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmDatosSocios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

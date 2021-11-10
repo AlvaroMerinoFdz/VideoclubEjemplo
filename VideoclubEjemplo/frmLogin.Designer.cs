@@ -80,6 +80,7 @@ namespace VideoclubEjemplo
             // 
             this.txtContraseña.Location = new System.Drawing.Point(110, 104);
             this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.Size = new System.Drawing.Size(221, 20);
             this.txtContraseña.TabIndex = 4;
             // 

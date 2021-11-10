@@ -535,6 +535,7 @@ namespace VideoclubEjemplo
             this.Controls.Add(stockLabel);
             this.Controls.Add(this.stockNumericUpDown);
             this.Controls.Add(this.peliculasBindingNavigator);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPeliculas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

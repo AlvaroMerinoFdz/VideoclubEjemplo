@@ -36,7 +36,7 @@ namespace VideoclubEjemplo
             this.label3 = new System.Windows.Forms.Label();
             this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.txtApellido1 = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnMostrarTodos = new System.Windows.Forms.Button();
             this.dgvSocios = new System.Windows.Forms.DataGridView();
@@ -48,6 +48,8 @@ namespace VideoclubEjemplo
             this.dsBD = new VideoclubEjemplo.dsBD();
             this.sociosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sociosTableAdapter = new VideoclubEjemplo.dsBDTableAdapters.sociosTableAdapter();
+            this.txtApellido2 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSocios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sociosBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsBD)).BeginInit();
@@ -78,11 +80,11 @@ namespace VideoclubEjemplo
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(45, 117);
+            this.label3.Location = new System.Drawing.Point(45, 100);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 15);
+            this.label3.Size = new System.Drawing.Size(97, 15);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Por Apellido:";
+            this.label3.Text = "Por Apellido1:";
             // 
             // txtIdCliente
             // 
@@ -100,13 +102,13 @@ namespace VideoclubEjemplo
             this.txtNombre.TabIndex = 4;
             this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
-            // txtApellido
+            // txtApellido1
             // 
-            this.txtApellido.Location = new System.Drawing.Point(145, 117);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(203, 20);
-            this.txtApellido.TabIndex = 5;
-            this.txtApellido.TextChanged += new System.EventHandler(this.txtApellido_TextChanged);
+            this.txtApellido1.Location = new System.Drawing.Point(145, 100);
+            this.txtApellido1.Name = "txtApellido1";
+            this.txtApellido1.Size = new System.Drawing.Size(203, 20);
+            this.txtApellido1.TabIndex = 5;
+            this.txtApellido1.TextChanged += new System.EventHandler(this.txtApellido_TextChanged);
             // 
             // btnBuscar
             // 
@@ -198,21 +200,41 @@ namespace VideoclubEjemplo
             // 
             this.sociosTableAdapter.ClearBeforeFill = true;
             // 
+            // txtApellido2
+            // 
+            this.txtApellido2.Location = new System.Drawing.Point(145, 126);
+            this.txtApellido2.Name = "txtApellido2";
+            this.txtApellido2.Size = new System.Drawing.Size(203, 20);
+            this.txtApellido2.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(45, 126);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(97, 15);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Por Apellido2:";
+            // 
             // frmBusqSocios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(550, 450);
+            this.Controls.Add(this.txtApellido2);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.dgvSocios);
             this.Controls.Add(this.btnMostrarTodos);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.txtApellido);
+            this.Controls.Add(this.txtApellido1);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.txtIdCliente);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBusqSocios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -233,7 +255,7 @@ namespace VideoclubEjemplo
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtIdCliente;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtApellido;
+        private System.Windows.Forms.TextBox txtApellido1;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnMostrarTodos;
         private System.Windows.Forms.DataGridView dgvSocios;
@@ -245,5 +267,7 @@ namespace VideoclubEjemplo
         private System.Windows.Forms.DataGridViewTextBoxColumn apell1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn apell2DataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource sociosBindingSource1;
+        private System.Windows.Forms.TextBox txtApellido2;
+        private System.Windows.Forms.Label label4;
     }
 }

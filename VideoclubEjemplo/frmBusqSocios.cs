@@ -24,12 +24,20 @@ namespace VideoclubEjemplo
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            busquedaSocio();
+            if (string.IsNullOrEmpty(txtIdCliente.Text.Trim()))
+            {
+                sociosTableAdapter.FillByFiltroSinID(dsBD.socios, txtNombre.Text.ToString(), txtApellido1.Text.ToString(), txtApellido2.Text.ToString());
+            }
+            else
+            {
+                sociosTableAdapter.FillByFiltroConID(dsBD.socios, txtNombre.Text.ToString(), txtApellido1.Text.ToString(), txtApellido2.Text.ToString(), int.Parse(txtIdCliente.Text.ToString()));
+            }
+            
 
         }
         private void comprobarBuscar()
         {
-            if (!string.IsNullOrEmpty(txtIdCliente.Text) || !string.IsNullOrEmpty(txtNombre.Text) || !string.IsNullOrEmpty(txtApellido.Text))
+            if (!string.IsNullOrEmpty(txtIdCliente.Text) || !string.IsNullOrEmpty(txtNombre.Text) || !string.IsNullOrEmpty(txtApellido1.Text))
             {
                 btnBuscar.Enabled = true;
             }
@@ -39,40 +47,6 @@ namespace VideoclubEjemplo
             }
         }
 
-        private void busquedaSocio()
-        {
-            string idSocio = txtIdCliente.Text.Trim();
-            String nombre = txtNombre.Text;
-            String apellido = txtApellido.Text;
-
-            if (string.IsNullOrEmpty(txtIdCliente.Text) && string.IsNullOrEmpty(txtNombre.Text))
-            {
-                //buscamos por apellido
-            }
-            else if (string.IsNullOrEmpty(txtIdCliente.Text))
-            {
-                //buscamos por nombre y apellido
-
-            }
-            else if (string.IsNullOrEmpty(txtNombre.Text))
-            {
-                //buscamos por idcliente y apellido
-
-            }
-            else if (string.IsNullOrEmpty(txtNombre.Text) && string.IsNullOrEmpty(txtApellido.Text))
-            {
-                //buscamos por id cliente
-
-            }
-            else if (string.IsNullOrEmpty(txtApellido.Text))
-            {
-                //buscamos por idcliente y nombre
-            }
-            else
-            {
-                //buscamos por nombre
-            }
-        }
 
         private void txtIdCliente_TextChanged(object sender, EventArgs e)
         {

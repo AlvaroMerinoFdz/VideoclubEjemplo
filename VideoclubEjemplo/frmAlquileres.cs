@@ -8,22 +8,26 @@ namespace VideoclubEjemplo
         public frmAlquileres()
         {
             InitializeComponent();
+            
         }
 
         private void btnBuscarSocio_Click(object sender, EventArgs e)
         {
-
-            frmBusqSocios ventana = new frmBusqSocios();
-            if (ventana.ShowDialog() == DialogResult.Cancel)
+            try
             {
-                if (!ventana.codSocio.Equals("-1"))
+                frmBusqSocios ventana = new frmBusqSocios();
+                if (ventana.ShowDialog() == DialogResult.Cancel)
                 {
-                    txtIdCliente.Text = ventana.codSocio;
-                    txtNombre.Text = ventana.nombre;
-                    txtApellido1.Text = ventana.apellido1;
-                    txtApellido2.Text = ventana.apellido2;
+                    if (!ventana.codSocio.Equals("-1"))
+                    {
+                        txtIdCliente.Text = ventana.codSocio;
+                        txtNombre.Text = ventana.nombre;
+                        txtApellido1.Text = ventana.apellido1;
+                        txtApellido2.Text = ventana.apellido2;
+                    }
                 }
             }
+            catch (Exception) { }
         }
 
 
@@ -61,6 +65,14 @@ namespace VideoclubEjemplo
             catch (Exception)
             {
 
+            }
+            if (string.IsNullOrEmpty(txtTituloAlquiler.Text) || string.IsNullOrEmpty(txtIdCliente.Text))
+            {
+                btnDevolverPelicula.Enabled = false;
+            }
+            else
+            {
+                btnDevolverPelicula.Enabled = true;
             }
 
         }
@@ -105,7 +117,7 @@ namespace VideoclubEjemplo
                 txtCodigoAlquiler.Text = dgvAlquileres.SelectedCells[0].Value.ToString();
                 txtTituloAlquiler.Text = dgvAlquileres.SelectedCells[1].Value.ToString();
 
-                if (string.IsNullOrEmpty(txtTituloAlquiler.Text))
+                if (string.IsNullOrEmpty(txtTituloAlquiler.Text) || string.IsNullOrEmpty(txtIdCliente.Text))
                 {
                     btnDevolverPelicula.Enabled = false;
                 }
@@ -163,7 +175,7 @@ namespace VideoclubEjemplo
 
                 //Actualizamos el valor del data grid
                 this.alquilerPorSocioTableAdapter.FillAlquilerPorSocio(this.dsBD.AlquilerPorSocio, int.Parse(txtIdCliente.Text));
-               
+
             }
             else
             {

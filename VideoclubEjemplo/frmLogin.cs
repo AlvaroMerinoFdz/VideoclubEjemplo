@@ -28,6 +28,8 @@ namespace VideoclubEjemplo
             {
                 MessageBox.Show("Buenas " + ds.socios[0].nombre, "Saludo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 IDSocio = ds.socios[0].idSocio;
+                frmPanelPrincipal ventana = new frmPanelPrincipal();
+                ventana.ShowDialog();
             }
             //Si no tenemos ningún socio con ese login y contraseña lo mostramos.
             else

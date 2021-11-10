@@ -13,7 +13,7 @@ namespace VideoclubEjemplo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPanelPrincipal());
+            Application.Run(new FrmLogin());
         }
     }
 }

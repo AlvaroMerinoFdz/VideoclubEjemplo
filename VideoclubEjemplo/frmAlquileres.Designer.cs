@@ -569,6 +569,7 @@ namespace VideoclubEjemplo
             this.Controls.Add(this.btnBuscarSocio);
             this.Controls.Add(this.dgvAlquileres);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAlquileres";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
